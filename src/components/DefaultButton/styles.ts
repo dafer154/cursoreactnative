@@ -3,15 +3,28 @@ import { colors } from '../../utils/theme';
 
 const styles = StyleSheet.create({
   mainContainer: {
-    backgroundColor: colors.mainOrange,
+    backgroundColor: 'white',
     alignItems: 'center',
     justifyContent: 'center',
     height: 50,
     marginTop: 10,
     width: '80%',
+    borderRadius: 50,
   },
   btnText: {
-    alignSelf: 'center',
+    alignSelf: 'flex-end',
+  },
+  primaryButton: {
+    backgroundColor: colors.mainOrange,
+  },
+  secondaryButton: {
+    backgroundColor: 'white',
+  },
+  primaryText: {
+    color: 'white',
+  },
+  secondaryText: {
+    color: colors.mainOrange,
   },
 });
 

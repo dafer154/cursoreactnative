@@ -36,7 +36,13 @@ const App = () => {
         resizeMode="contain"
       />
       <DefaultButton compStyle={styles.button} onPress={showAlert} text="Siuuuu" />
-      <DefaultButton color={5050} onPress={showAlert} text="Bigger" textSize={18} />
+      <DefaultButton
+        color={'white'}
+        onPress={showAlert}
+        text="Bigger"
+        textSize={18}
+        variant="secondary"
+      />
     </View>
   );
 };

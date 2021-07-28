@@ -7,18 +7,31 @@ interface Props {
   onPress: () => void;
   text: string;
   compStyle?: ViewStyle;
-  color: string;
-  textSize: number;
+  color?: string;
+  textSize?: number;
+  variant?: 'primary' | 'secondary';
 }
 
-const DefaultButton = ({ compStyle, color, onPress, text, textSize }: Props) => {
+const DefaultButton = ({ compStyle, onPress, text, textSize, variant }: Props) => {
   return (
     /* style={} or style={[]} */
     <TouchableOpacity
-      style={[styles.mainContainer, compStyle, { backgroundColor: color }]}
+      style={[
+        styles.mainContainer,
+        compStyle,
+        { backgroundColor: variant === 'primary' ? 'blue' : 'red' },
+      ]}
       onPress={onPress}
     >
-      <Text style={[styles.btnText, { fontSize: textSize }]}>{text}</Text>
+      <Text
+        style={[
+          styles.btnText,
+          { fontSize: textSize },
+          { color: variant === 'primary' ? 'green' : 'black' },
+        ]}
+      >
+        {text}
+      </Text>
     </TouchableOpacity>
   );
 };
@@ -28,6 +41,7 @@ DefaultButton.defaultProps = {
   compStyle: {},
   color: colors.mainOrange,
   textSize: 14,
+  variant: 'primary',
 };
 
 export default DefaultButton;
