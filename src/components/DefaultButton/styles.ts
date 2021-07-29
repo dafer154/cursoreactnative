@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
     borderRadius: 50,
   },
   btnText: {
-    alignSelf: 'flex-end',
+    alignSelf: 'center',
   },
   primaryButton: {
     backgroundColor: colors.mainOrange,

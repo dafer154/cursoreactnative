@@ -40,7 +40,7 @@ const DefaultButton = ({ compStyle, onPress, text, textSize, variant }: Props) =
 DefaultButton.defaultProps = {
   compStyle: {},
   color: colors.mainOrange,
-  textSize: 14,
+  textSize: 18,
   variant: 'primary',
 };
 
