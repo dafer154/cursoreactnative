@@ -9,67 +9,49 @@
  */
 
 import React, { useState } from 'react';
-import { StyleSheet, Modal, View, Text, Image } from 'react-native';
+import { StyleSheet, View, Image } from 'react-native';
 
-import { DefaultButton } from './src/components';
+import { DefaultButton, DefaultModal, Typography } from './src/components';
 
 import { colors } from './src/utils/theme';
 import { DEVICE_WIDTH } from './src/utils/dimensions';
 
-// const showAlert = () => {
-//   Alert.alert('Hola');
-// };
-
 const App = () => {
-  const [isModalVisible, setModalVisible] = useState(false);
-  /*
-    This will rerender the app
-    const showAlert = () => {
-        Alert.alert('hola!');
-    }; */
+  const [IsModalVisible, setIsModalVisible] = useState(false);
 
-  const showModal = () => {
-    setModalVisible(true);
+  const showAlert = () => {
+    setIsModalVisible(true);
   };
-  const hideModal = () => {
-    setModalVisible(false);
+
+  const hideAlert = () => {
+    setIsModalVisible(false);
   };
+
   return (
     <View style={styles.mainContainer}>
-      <Text style={styles.title}>Texto</Text>
-      <Text>Subtitulo</Text>
+      <Typography color={colors.mainOrange} size={30}>
+        Título
+      </Typography>
+      <View style={styles.subtitle}>
+        <Typography>Subtitulo</Typography>
+      </View>
       <Image
         source={{ uri: 'https://reactnative.dev/img/tiny_logo.png' }}
         style={styles.image}
         resizeMode="contain"
       />
-      <DefaultButton compStyle={styles.button} onPress={showModal} text="Motrar hola mundo" />
-      <Modal visible={isModalVisible} transparent animationType="fade">
-        <View
-          style={{
-            flex: 1,
-            backgroundColor: 'rgba(0,0,0,0.2)',
-            width: '100%',
-            justifyContent: 'center',
-            alignItems: 'center',
-          }}
-        >
-          <View
-            style={{
-              backgroundColor: colors.white,
-              width: '65%',
-              paddingBottom: 20,
-              paddingTop: 10,
-              justifyContent: 'center',
-              alignItems: 'center',
-              borderRadius: 13,
-            }}
-          >
-            <Text style={{ marginVertical: 20 }}>Hola mundo</Text>
-            <DefaultButton onPress={hideModal} text="Ok" compStyle={{ height: 40 }}></DefaultButton>
-          </View>
-        </View>
-      </Modal>
+      <DefaultButton
+        compStyle={styles.button}
+        text="Mostrar Hola Mundo"
+        onPress={showAlert}
+        variant="secondary"
+      />
+      <DefaultModal
+        isModalVisible={IsModalVisible}
+        text="Hello World"
+        actionButtonText="Ok"
+        onModalAction={hideAlert}
+      />
     </View>
   );
 };
@@ -85,6 +67,9 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'center',
     width: '100%',
+  },
+  subtitle: {
+    marginBottom: 10,
   },
   title: {
     color: colors.mainOrange,

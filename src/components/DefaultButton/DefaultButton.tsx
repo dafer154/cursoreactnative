@@ -1,37 +1,24 @@
 import React from 'react';
-import { Text, TouchableOpacity, ViewStyle } from 'react-native';
-import styles from './styles';
+import { TouchableOpacity, ViewStyle } from 'react-native';
+import Typography from '../Typography';
+import styles, { buttonTextColors } from './styles';
 import { colors } from '../../utils/theme';
 
 interface Props {
-  onPress: () => void;
+  onPress?: () => void;
   text: string;
   compStyle?: ViewStyle;
-  color?: string;
   textSize?: number;
   variant?: 'primary' | 'secondary';
 }
 
-const DefaultButton = ({ compStyle, onPress, text, textSize, variant }: Props) => {
+const DefaultButton = ({ compStyle, onPress, text, textSize, variant = 'primary' }: Props) => {
   return (
     /* style={} or style={[]} */
-    <TouchableOpacity
-      style={[
-        styles.mainContainer,
-        compStyle,
-        { backgroundColor: variant === 'primary' ? 'blue' : 'red' },
-      ]}
-      onPress={onPress}
-    >
-      <Text
-        style={[
-          styles.btnText,
-          { fontSize: textSize },
-          { color: variant === 'primary' ? 'green' : 'black' },
-        ]}
-      >
+    <TouchableOpacity style={[styles.mainContainer, styles[variant], compStyle]} onPress={onPress}>
+      <Typography color={buttonTextColors[variant] || colors.white} size={textSize}>
         {text}
-      </Text>
+      </Typography>
     </TouchableOpacity>
   );
 };
