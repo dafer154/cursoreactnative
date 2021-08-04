@@ -16,13 +16,13 @@ const DefaultModal = ({ actionButtonText, isModalVisible, onModalAction, text }:
     <Modal visible={isModalVisible} transparent animationType="fade">
       <View style={styles.mainContainerModal}>
         <View style={styles.alertModal}>
-          <View style={{ marginVertical: 20 }}>
+          <View style={styles.textContainer}>
             <Typography>{text}</Typography>
           </View>
           <DefaultButton
             onPress={onModalAction}
             text={actionButtonText}
-            compStyle={{ height: 40 }}
+            compStyle={styles.button}
           />
         </View>
       </View>

@@ -18,6 +18,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: 13,
   },
+  textContainer: {
+    marginVertical: 20,
+  },
+  button: {
+    height: 40,
+  },
 });
 
 export default styles;
