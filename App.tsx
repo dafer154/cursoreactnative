@@ -9,7 +9,7 @@
  */
 
 import React, { useState } from 'react';
-import { StyleSheet, View, Image } from 'react-native';
+import { StyleSheet, View, Image, SafeAreaView, ScrollView } from 'react-native';
 
 import { DefaultButton, DefaultModal, Typography } from './src/components';
 
@@ -28,31 +28,46 @@ const App = () => {
   };
 
   return (
-    <View style={styles.mainContainer}>
-      <Typography color={colors.mainOrange} size={30} variant="bold">
-        Título
-      </Typography>
-      <View style={styles.subtitle}>
-        <Typography variant="medium">Subtitulo</Typography>
-      </View>
-      <Image
-        source={{ uri: 'https://reactnative.dev/img/tiny_logo.png' }}
-        style={styles.image}
-        resizeMode="contain"
-      />
-      <DefaultButton
-        compStyle={styles.button}
-        text="Mostrar Hola Mundo"
-        onPress={showAlert}
-        variant="secondary"
-      />
-      <DefaultModal
-        isModalVisible={IsModalVisible}
-        text="Hello World"
-        actionButtonText="Ok"
-        onModalAction={hideAlert}
-      />
-    </View>
+    <>
+      <SafeAreaView />
+      <ScrollView style={styles.scrollContainer}>
+        <View style={styles.mainContainer}>
+          <Typography color={colors.mainOrange} size={30} variant="bold">
+            Título
+          </Typography>
+          <View style={styles.subtitle}>
+            <Typography variant="medium">Subtitulo</Typography>
+          </View>
+          <Typography color={colors.white} variant="regular">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur aliquid ipsum odio?
+            Culpa illo nobis dolore voluptate quasi cum, quisquam ex blanditiis adipisci hic unde
+            itaque doloremque ducimus? Provident, sit! Lorem ipsum dolor sit amet consectetur
+            adipisicing elit. Consequatur aliquid ipsum odio? Culpa illo nobis dolore voluptate
+            quasi cum, quisquam ex blanditiis adipisci hic unde itaque doloremque ducimus?
+            Provident, sit! Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur
+            aliquid ipsum odio? Culpa illo nobis dolore voluptate quasi cum, quisquam ex blanditiis
+            adipisci hic unde itaque doloremque ducimus? Provident, sit!
+          </Typography>
+          <Image
+            source={{ uri: 'https://reactnative.dev/img/tiny_logo.png' }}
+            style={styles.image}
+            resizeMode="contain"
+          />
+          <DefaultButton
+            compStyle={styles.button}
+            text="Mostrar Hola Mundo"
+            onPress={showAlert}
+            variant="secondary"
+          />
+          <DefaultModal
+            isModalVisible={IsModalVisible}
+            text="Hello World"
+            actionButtonText="Ok"
+            onModalAction={hideAlert}
+          />
+        </View>
+      </ScrollView>
+    </>
   );
 };
 
@@ -67,6 +82,9 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'center',
     width: '100%',
+  },
+  scrollContainer: {
+    backgroundColor: 'red',
   },
   subtitle: {
     marginBottom: 10,
