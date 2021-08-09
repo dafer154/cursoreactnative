@@ -11,7 +11,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, Image, SafeAreaView, ScrollView } from 'react-native';
 
-import { DefaultButton, DefaultModal, Typography } from './src/components';
+import { DefaultButton, DefaultModal, Typography, Separator } from './src/components';
 
 import { colors } from './src/utils/theme';
 import { DEVICE_WIDTH } from './src/utils/dimensions';
@@ -48,11 +48,13 @@ const App = () => {
             aliquid ipsum odio? Culpa illo nobis dolore voluptate quasi cum, quisquam ex blanditiis
             adipisci hic unde itaque doloremque ducimus? Provident, sit!
           </Typography>
+          <Separator separation={50} />
           <Image
             source={{ uri: 'https://reactnative.dev/img/tiny_logo.png' }}
             style={styles.image}
             resizeMode="contain"
           />
+          <Separator separation={50} />
           <DefaultButton
             compStyle={styles.button}
             text="Mostrar Hola Mundo"
@@ -84,7 +86,7 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   scrollContainer: {
-    backgroundColor: 'red',
+    backgroundColor: colors.veryLightBlue,
   },
   subtitle: {
     marginBottom: 10,
