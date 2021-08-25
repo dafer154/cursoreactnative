@@ -3,6 +3,7 @@ import { View, Image, SafeAreaView, ScrollView } from 'react-native';
 import { DefaultButton, DefaultModal, Typography, Separator } from '../../components';
 import styles from './styles';
 import { colors } from '../../utils/theme';
+import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 
 const ExperimentalScreen = () => {
   const [IsModalVisible, setIsModalVisible] = useState(false);
@@ -26,6 +27,7 @@ const ExperimentalScreen = () => {
           <View style={styles.subtitle}>
             <Typography variant="medium">Subtitulo</Typography>
           </View>
+          <MaterialIcon name="search" size={30} color={colors.mainOrange} />
           <Typography color={colors.white} variant="regular">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur aliquid ipsum odio?
             Culpa illo nobis dolore voluptate quasi cum, quisquam ex blanditiis adipisci hic unde

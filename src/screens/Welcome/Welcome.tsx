@@ -3,7 +3,7 @@ import { View } from 'react-native';
 
 import { DefaultButton, Separator, Typography } from '../../components';
 import styles from './styles';
-import { goToScreen } from '../../navigation/controls';
+import { goToScreen, replaceRoute } from '../../navigation/controls';
 
 const WelcomeScreen = () => {
   return (
@@ -12,7 +12,7 @@ const WelcomeScreen = () => {
         Welcome Screen
       </Typography>
       <Separator separation={15} />
-      <DefaultButton text="Go To Tabs" textSize={16} onPress={() => goToScreen('TabNavigator')} />
+      <DefaultButton text="Go To Tabs" textSize={16} onPress={() => replaceRoute('TabNavigator')} />
       <Separator separation={10} />
       <DefaultButton
         text="Go To Experimental Screen"

@@ -1,15 +1,15 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { ExperimentalScreen, Welcome } from '../screens';
+import { ExperimentalScreen, HomeScreen } from '../screens';
 
 const Stack = createNativeStackNavigator();
 
-const AuthStack = () => (
+const HomeStack = () => (
   //for default choose the first screen
-  <Stack.Navigator initialRouteName="Welcome">
-    <Stack.Screen name="Welcome" component={Welcome} options={{ headerShown: false }} />
+  <Stack.Navigator initialRouteName="Home" screenOptions={{ headerShown: false }}>
+    <Stack.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
     <Stack.Screen name="Experimental" component={ExperimentalScreen} />
   </Stack.Navigator>
 );
 
-export default AuthStack;
+export default HomeStack;

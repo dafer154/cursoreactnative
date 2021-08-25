@@ -9,11 +9,13 @@
  */
 
 import React from 'react';
-const { NavigationContainer } = require('@react-navigation/native');
+import { NavigationContainer } from '@react-navigation/native';
 import { navigationRef } from './src/navigation/controls';
 import MainNavigator from './src/navigation/MainNavigator';
+import { API_URL } from './src/config/envVariable';
 
 const App = () => {
+  console.log('OME sisa', API_URL);
   return (
     <NavigationContainer ref={navigationRef}>
       <MainNavigator />
