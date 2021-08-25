@@ -1,21 +1,61 @@
 import React from 'react';
-import { TouchableOpacity, View } from 'react-native';
-import styles from './styles';
+import { SafeAreaView, TouchableOpacity, View } from 'react-native';
+import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
+
+import Separator from '../Separator';
 import Typography from '../Typography';
+import styles from './styles';
+import { colors } from '../../utils/theme';
+
+import { goBack } from '../../navigation/controls';
 
 interface Props {
-  onPress?: () => void;
-  text?: string;
+  onPressBackButton?: () => void;
+  onPressRightButton?: () => void;
+  RightSideComponent?: React.FC;
+  showBackButton?: boolean;
+  title: string;
 }
 
-const Header = ({ onPress, text }: Props) => {
+const Header = ({
+  onPressBackButton,
+  onPressRightButton,
+  RightSideComponent,
+  showBackButton,
+  title,
+}: Props) => {
   return (
-    <TouchableOpacity onPress={onPress}>
-      <View style={styles.header}>
-        <Typography>{text}</Typography>
+    <>
+      <SafeAreaView />
+      <View style={styles.mainContainer}>
+        {showBackButton ? (
+          <TouchableOpacity onPress={onPressBackButton} style={styles.sideButtonContainer}>
+            <MaterialIcon name="navigate-before" size={35} color={colors.black} />
+          </TouchableOpacity>
+        ) : (
+          <Separator isHorizontal separation={40} />
+        )}
+        <View style={styles.titleContainer}>
+          <Typography variant="bold" size={17}>
+            {title}
+          </Typography>
+        </View>
+        {RightSideComponent ? (
+          <TouchableOpacity onPress={onPressRightButton} style={styles.sideButtonContainer}>
+            <RightSideComponent />
+          </TouchableOpacity>
+        ) : (
+          <Separator isHorizontal separation={40} />
+        )}
       </View>
-    </TouchableOpacity>
+    </>
   );
+};
+
+Header.defaultProps = {
+  onPressBackButton: goBack,
+  onPressRightButton: () => {},
+  showBackButton: true,
 };
 
 export default Header;

@@ -5,6 +5,14 @@ import { DefaultButton, Separator, Typography } from '../../components';
 import styles from './styles';
 import { goToScreen, replaceRoute } from '../../navigation/controls';
 
+const goToMainTabs = () => {
+  replaceRoute('TabNavigator');
+};
+
+const goToExperimentalScreen = () => {
+  goToScreen('Experimental');
+};
+
 const WelcomeScreen = () => {
   return (
     <View style={styles.mainContainer}>
@@ -12,12 +20,12 @@ const WelcomeScreen = () => {
         Welcome Screen
       </Typography>
       <Separator separation={15} />
-      <DefaultButton text="Go To Tabs" textSize={16} onPress={() => replaceRoute('TabNavigator')} />
+      <DefaultButton text="Go To Tabs" textSize={16} onPress={goToMainTabs} />
       <Separator separation={10} />
       <DefaultButton
         text="Go To Experimental Screen"
         textSize={16}
-        onPress={() => goToScreen('Experimental')}
+        onPress={goToExperimentalScreen}
         variant="secondary"
       />
     </View>
