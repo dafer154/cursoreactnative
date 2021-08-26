@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Image, SafeAreaView, ScrollView } from 'react-native';
 import { DefaultButton, DefaultModal, Typography, Separator, Header } from '../../components';
 import styles from './styles';
@@ -15,6 +15,12 @@ const ExperimentalScreen = () => {
   const hideAlert = () => {
     setIsModalVisible(false);
   };
+
+  useEffect(() => {
+    console.log('Inside useEffect');
+  }, []);
+
+  console.log('Inside Experimental Screen');
 
   return (
     <>

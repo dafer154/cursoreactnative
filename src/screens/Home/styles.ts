@@ -7,6 +7,10 @@ const styles = StyleSheet.create({
     flex: 1,
     width: '100%',
   },
+  scrollView: {
+    flex: 1,
+    width: '100%',
+  },
 });
 
 export default styles;
