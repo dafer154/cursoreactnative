@@ -36,8 +36,8 @@ const HomeScreen = () => {
         Alert.alert('Error getting books on Home Screen');
       }
     } catch (error) {
-      console.log('Error getting books on Home Screen', error);
-      Alert.alert('Error getting books on Home Screen');
+      console.log('Error getting books, on Home Screen', error);
+      Alert.alert('Error getting books, on Home Screen');
     } finally {
       setLoading(false);
     }
