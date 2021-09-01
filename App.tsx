@@ -10,6 +10,7 @@
 
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { navigationRef } from './src/navigation/controls';
 import MainNavigator from './src/navigation/MainNavigator';
 import { API_URL } from './src/config/envVariable';
@@ -17,9 +18,11 @@ import { API_URL } from './src/config/envVariable';
 const App = () => {
   console.log('OME sisa', API_URL);
   return (
-    <NavigationContainer ref={navigationRef}>
-      <MainNavigator />
-    </NavigationContainer>
+    <SafeAreaProvider>
+      <NavigationContainer ref={navigationRef}>
+        <MainNavigator />
+      </NavigationContainer>
+    </SafeAreaProvider>
   );
 };
 
